@@ -28,7 +28,7 @@ class Issue
           .select { |item| item["field"] == JIRA_FIELD_NAME_STATUS }
           .map do |item|
           {
-            datetime: DateTime.parse(datetime),
+            datetime: Issue.parse_datetime(datetime),
             from:item["fromString"],
             to: item["toString"],
           }
@@ -40,5 +40,11 @@ class Issue
 
   def self.diff_dates_in_seconds(start_time, end_time)
     ((end_time - start_time) * 24 * 60 * 60).to_i
+  end
+
+  def self.parse_datetime(datetime)
+    re = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).(\d{3})-\d{4}$/
+    _, year, month, day, hour, minute, second, microsecond = re.match(datetime).to_a.map(&:to_i)
+    DateTime.new(year, month, day, hour, minute, second, microsecond)
   end
 end

@@ -16,12 +16,12 @@ custom:
   stage: ${opt:stage, env:SLS_STAGE, 'dev'}
 functions:
   report:
-    handler: report.run
+    handler: entry_report.run
     package:
       exclude:
         - ./**
       include:
-        - report.rb
+        - entry_report.rb
         - lib/**/*.rb
     # layers:
     #   - { Ref: GemsLambdaLayer }
