@@ -1,0 +1,3210 @@
+{
+  "expand": "schema,names",
+  "startAt": 0,
+  "maxResults": 100,
+  "total": 58,
+  "issues": [
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "36129",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/36129",
+      "key": "PM-7760",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 11,
+        "total": 11,
+        "histories": [
+          {
+            "id": "345904",
+            "created": "2020-08-27T16:45:56.842-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "345830",
+            "created": "2020-08-27T13:56:25.745-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "345826",
+            "created": "2020-08-27T13:40:42.807-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "345825",
+            "created": "2020-08-27T13:40:41.939-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "345821",
+            "created": "2020-08-27T13:40:21.686-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10005",
+                "fromString": "Needs Code Review",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "345737",
+            "created": "2020-08-27T11:23:40.172-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10005",
+                "toString": "Needs Code Review"
+              }
+            ]
+          },
+          {
+            "id": "345736",
+            "created": "2020-08-27T11:23:36.012-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "36053",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/36053",
+      "key": "PM-7738",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 15,
+        "total": 15,
+        "histories": [
+          {
+            "id": "345311",
+            "created": "2020-08-26T11:28:07.410-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "345228",
+            "created": "2020-08-26T09:49:39.875-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "345227",
+            "created": "2020-08-26T09:49:32.550-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "345117",
+            "created": "2020-08-25T15:37:11.024-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35998",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35998",
+      "key": "PM-7705",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 14,
+        "total": 14,
+        "histories": [
+          {
+            "id": "345101",
+            "created": "2020-08-25T15:13:33.575-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "344792",
+            "created": "2020-08-24T16:10:22.990-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "344681",
+            "created": "2020-08-24T13:08:14.171-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "344153",
+            "created": "2020-08-21T15:13:02.913-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35779",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35779",
+      "key": "PM-7641",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 23,
+        "total": 23,
+        "histories": [
+          {
+            "id": "342495",
+            "created": "2020-08-17T15:31:30.076-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "342492",
+            "created": "2020-08-17T15:30:44.842-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10001",
+                "fromString": "Done",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ],
+            "historyMetadata": {}
+          },
+          {
+            "id": "342491",
+            "created": "2020-08-17T15:30:42.339-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "342441",
+            "created": "2020-08-17T14:19:25.526-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "342405",
+            "created": "2020-08-17T13:21:19.981-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10001",
+                "fromString": "Done",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ],
+            "historyMetadata": {}
+          },
+          {
+            "id": "342404",
+            "created": "2020-08-17T13:21:14.403-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "341227",
+            "created": "2020-08-12T10:55:31.467-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "341140",
+            "created": "2020-08-12T09:32:15.789-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35769",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35769",
+      "key": "PM-7639",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "341147",
+            "created": "2020-08-12T09:51:15.773-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34862",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34862",
+      "key": "PM-7429",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 11,
+        "total": 11,
+        "histories": [
+          {
+            "id": "330678",
+            "created": "2020-07-10T13:47:58.718-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "330439",
+            "created": "2020-07-09T16:25:27.001-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10005",
+                "fromString": "Needs Code Review",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "330029",
+            "created": "2020-07-08T15:17:47.568-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10005",
+                "toString": "Needs Code Review"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10002",
+          "id": "10002",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34861",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34861",
+      "key": "PM-7428",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 9,
+        "total": 9,
+        "histories": [
+          {
+            "id": "332430",
+            "created": "2020-07-16T09:48:54.494-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "332274",
+            "created": "2020-07-15T15:43:50.875-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "332272",
+            "created": "2020-07-15T15:38:29.783-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10005",
+                "fromString": "Needs Code Review",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "id": "332271",
+            "created": "2020-07-15T15:38:28.747-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10005",
+                "toString": "Needs Code Review"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34860",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34860",
+      "key": "PM-7427",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 12,
+        "total": 12,
+        "histories": [
+          {
+            "id": "344757",
+            "created": "2020-08-24T15:04:41.636-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "344382",
+            "created": "2020-08-24T09:59:20.860-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "344109",
+            "created": "2020-08-21T14:04:31.114-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "344012",
+            "created": "2020-08-21T10:39:08.241-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10002",
+          "id": "10002",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34576",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34576",
+      "key": "PM-7350",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 16,
+        "total": 16,
+        "histories": [
+          {
+            "id": "327828",
+            "created": "2020-06-30T15:11:17.205-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "327819",
+            "created": "2020-06-30T15:09:32.883-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10001",
+                "fromString": "Done",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ],
+            "historyMetadata": {}
+          },
+          {
+            "id": "327818",
+            "created": "2020-06-30T15:09:30.052-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "326390",
+            "created": "2020-06-25T09:50:02.634-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34329",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34329",
+      "key": "PM-7260",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 15,
+        "total": 15,
+        "histories": [
+          {
+            "id": "340363",
+            "created": "2020-08-10T11:28:09.740-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10137",
+                "fromString": "Ready To Merge",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "340359",
+            "created": "2020-08-10T11:27:04.953-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10137",
+                "toString": "Ready To Merge"
+              }
+            ]
+          },
+          {
+            "id": "340216",
+            "created": "2020-08-10T09:48:41.761-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10005",
+                "fromString": "Needs Code Review",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "339151",
+            "created": "2020-08-06T09:49:50.155-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10005",
+                "toString": "Needs Code Review"
+              }
+            ]
+          },
+          {
+            "id": "337987",
+            "created": "2020-08-04T10:54:01.635-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34296",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34296",
+      "key": "PM-7256",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "341871",
+            "created": "2020-08-14T13:56:48.505-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "32170",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/32170",
+      "key": "PM-6733",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 5,
+        "total": 5,
+        "histories": [
+          {
+            "id": "342973",
+            "created": "2020-08-18T15:27:06.917-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "28468",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/28468",
+      "key": "PM-5804",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 2,
+        "total": 2,
+        "histories": [
+          {
+            "id": "342953",
+            "created": "2020-08-18T15:15:40.584-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "27473",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/27473",
+      "key": "PM-5543",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 5,
+        "total": 5,
+        "histories": [
+          {
+            "id": "343646",
+            "created": "2020-08-20T11:52:58.464-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10004",
+          "id": "10004",
+          "name": "Bug",
+          "subtask": false,
+          "avatarId": 10303
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "27448",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/27448",
+      "key": "PM-5537",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 11,
+        "total": 11,
+        "histories": [
+          {
+            "id": "343886",
+            "created": "2020-08-20T15:59:38.141-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          },
+          {
+            "id": "343846",
+            "created": "2020-08-20T15:28:47.101-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "25950",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/25950",
+      "key": "PM-5218",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 5,
+        "total": 5,
+        "histories": [
+          {
+            "id": "342978",
+            "created": "2020-08-18T15:31:21.745-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "25949",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/25949",
+      "key": "PM-5217",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 9,
+        "total": 9,
+        "histories": [
+          {
+            "id": "342987",
+            "created": "2020-08-18T15:34:51.631-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "25888",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/25888",
+      "key": "PM-5207",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "342969",
+            "created": "2020-08-18T15:26:26.892-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "25579",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/25579",
+      "key": "PM-5149",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "342964",
+            "created": "2020-08-18T15:23:45.063-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "25574",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/25574",
+      "key": "PM-5146",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 6,
+        "total": 6,
+        "histories": [
+          {
+            "id": "342966",
+            "created": "2020-08-18T15:24:04.129-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "25459",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/25459",
+      "key": "PM-5115",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 7,
+        "total": 7,
+        "histories": [
+          {
+            "id": "342961",
+            "created": "2020-08-18T15:21:58.627-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          },
+          {
+            "id": "211786",
+            "created": "2019-08-28T10:37:58.649-0400",
+            "items": []
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10004",
+          "id": "10004",
+          "name": "Bug",
+          "subtask": false,
+          "avatarId": 10303
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "23369",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/23369",
+      "key": "PM-4699",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "341016",
+            "created": "2020-08-11T15:45:32.559-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35974",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35974",
+      "key": "API-504",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "343839",
+            "created": "2020-08-20T15:22:08.378-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "343741",
+            "created": "2020-08-20T13:45:42.548-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10045",
+          "id": "10045",
+          "name": "Support Request",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34288",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34288",
+      "key": "API-503",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "344098",
+            "created": "2020-08-21T13:50:14.450-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35880",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35880",
+      "key": "API-493",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "343835",
+            "created": "2020-08-20T15:21:03.693-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "343180",
+            "created": "2020-08-19T11:23:12.497-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35833",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35833",
+      "key": "API-490",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "341879",
+            "created": "2020-08-14T14:01:08.559-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "341859",
+            "created": "2020-08-14T13:39:42.532-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35818",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35818",
+      "key": "API-489",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 3,
+        "total": 3,
+        "histories": [
+          {
+            "id": "341753",
+            "created": "2020-08-13T16:11:01.058-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "341617",
+            "created": "2020-08-13T13:20:08.229-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10045",
+          "id": "10045",
+          "name": "Support Request",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35766",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35766",
+      "key": "API-487",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 6,
+        "total": 6,
+        "histories": [
+          {
+            "id": "342410",
+            "created": "2020-08-17T13:29:12.366-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "341931",
+            "created": "2020-08-14T16:25:42.113-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35753",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35753",
+      "key": "API-486",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "341045",
+            "created": "2020-08-11T16:17:31.519-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "341018",
+            "created": "2020-08-11T15:49:03.315-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35716",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35716",
+      "key": "API-485",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "342497",
+            "created": "2020-08-17T15:32:13.898-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35398",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35398",
+      "key": "API-484",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 3,
+        "total": 3,
+        "histories": [
+          {
+            "id": "336416",
+            "created": "2020-07-28T15:25:46.710-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10045",
+          "id": "10045",
+          "name": "Support Request",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35364",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35364",
+      "key": "API-483",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 9,
+        "total": 9,
+        "histories": [
+          {
+            "id": "337535",
+            "created": "2020-07-31T10:38:06.629-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "337309",
+            "created": "2020-07-30T14:25:01.009-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35363",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35363",
+      "key": "API-482",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "337858",
+            "created": "2020-08-04T08:58:05.513-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "337538",
+            "created": "2020-07-31T10:38:46.824-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35362",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35362",
+      "key": "API-481",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 14,
+        "total": 14,
+        "histories": [
+          {
+            "id": "340351",
+            "created": "2020-08-10T11:15:55.622-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "340215",
+            "created": "2020-08-10T09:48:17.112-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35274",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35274",
+      "key": "API-480",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 6,
+        "total": 6,
+        "histories": [
+          {
+            "id": "334788",
+            "created": "2020-07-23T15:44:56.833-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10004",
+          "id": "10004",
+          "name": "Bug",
+          "subtask": false,
+          "avatarId": 10303
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35262",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35262",
+      "key": "API-479",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 3,
+        "total": 3,
+        "histories": [
+          {
+            "id": "336404",
+            "created": "2020-07-28T15:22:22.104-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35261",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35261",
+      "key": "API-478",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "336403",
+            "created": "2020-07-28T15:21:47.568-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35259",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35259",
+      "key": "API-477",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "335189",
+            "created": "2020-07-24T15:03:59.107-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "335136",
+            "created": "2020-07-24T14:21:10.559-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "334780",
+            "created": "2020-07-23T15:37:49.332-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35217",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35217",
+      "key": "API-476",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 11,
+        "total": 11,
+        "histories": [
+          {
+            "id": "341889",
+            "created": "2020-08-14T14:34:04.012-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "341888",
+            "created": "2020-08-14T14:32:48.072-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "341883",
+            "created": "2020-08-14T14:19:03.081-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "35091",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/35091",
+      "key": "API-474",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "334336",
+            "created": "2020-07-22T11:32:20.475-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "334197",
+            "created": "2020-07-21T17:04:21.874-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "334080",
+            "created": "2020-07-21T13:30:57.844-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34840",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34840",
+      "key": "API-470",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 7,
+        "total": 7,
+        "histories": [
+          {
+            "id": "331742",
+            "created": "2020-07-14T15:13:48.455-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34780",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34780",
+      "key": "API-467",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "328571",
+            "created": "2020-07-03T15:40:48.553-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "328570",
+            "created": "2020-07-03T15:40:27.704-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34734",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34734",
+      "key": "API-466",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "336191",
+            "created": "2020-07-28T11:27:46.172-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "334726",
+            "created": "2020-07-23T14:02:04.019-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34731",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34731",
+      "key": "API-463",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 7,
+        "total": 7,
+        "histories": [
+          {
+            "id": "331755",
+            "created": "2020-07-14T15:25:09.538-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34729",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34729",
+      "key": "API-462",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 12,
+        "total": 12,
+        "histories": [
+          {
+            "id": "335481",
+            "created": "2020-07-27T09:50:19.102-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10005",
+                "fromString": "Needs Code Review",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "335480",
+            "created": "2020-07-27T09:38:18.568-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10005",
+                "toString": "Needs Code Review"
+              }
+            ]
+          },
+          {
+            "id": "335479",
+            "created": "2020-07-27T09:38:12.203-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34722",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34722",
+      "key": "API-461",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 17,
+        "total": 17,
+        "histories": [
+          {
+            "id": "333831",
+            "created": "2020-07-20T14:33:31.723-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          },
+          {
+            "id": "333463",
+            "created": "2020-07-20T10:46:26.357-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34619",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34619",
+      "key": "API-460",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "329542",
+            "created": "2020-07-07T14:02:59.000-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "329153",
+            "created": "2020-07-06T14:58:33.236-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "328199",
+            "created": "2020-07-02T14:19:24.874-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34596",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34596",
+      "key": "API-459",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "329190",
+            "created": "2020-07-06T15:41:12.373-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "328176",
+            "created": "2020-07-02T13:31:32.473-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34295",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34295",
+      "key": "API-453",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 3,
+        "total": 3,
+        "histories": [
+          {
+            "id": "329603",
+            "created": "2020-07-07T14:28:26.413-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "34156",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/34156",
+      "key": "API-443",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 18,
+        "total": 18,
+        "histories": [
+          {
+            "id": "332211",
+            "created": "2020-07-15T14:57:07.161-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "331470",
+            "created": "2020-07-14T09:50:27.102-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "331469",
+            "created": "2020-07-14T09:50:25.353-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "330680",
+            "created": "2020-07-10T13:49:01.404-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "33950",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/33950",
+      "key": "API-432",
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10118",
+          "id": "10118",
+          "name": "Spike",
+          "subtask": false,
+          "avatarId": 10608
+        }
+      },
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 23,
+        "total": 23,
+        "histories": [
+          {
+            "id": "333458",
+            "created": "2020-07-20T10:45:57.976-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "332214",
+            "created": "2020-07-15T15:02:05.439-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "id": "327838",
+            "created": "2020-06-30T15:13:11.754-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10000",
+                "toString": "To Do"
+              }
+            ]
+          },
+          {
+            "id": "327524",
+            "created": "2020-06-29T15:06:33.008-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "33892",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/33892",
+      "key": "API-431",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 32,
+        "total": 32,
+        "histories": [
+          {
+            "id": "334108",
+            "created": "2020-07-21T14:57:17.102-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "334107",
+            "created": "2020-07-21T14:57:12.666-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10001",
+                "fromString": "Done",
+                "to": "10000",
+                "toString": "To Do"
+              }
+            ]
+          },
+          {
+            "id": "332209",
+            "created": "2020-07-15T14:56:53.084-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "330437",
+            "created": "2020-07-09T16:25:10.700-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "33219",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/33219",
+      "key": "API-408",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 18,
+        "total": 18,
+        "histories": [
+          {
+            "id": "343155",
+            "created": "2020-08-19T10:47:49.400-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10006",
+                "fromString": "Needs Testing",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "id": "343012",
+            "created": "2020-08-18T15:58:04.860-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10005",
+                "fromString": "Needs Code Review",
+                "to": "10006",
+                "toString": "Needs Testing"
+              }
+            ]
+          },
+          {
+            "id": "342745",
+            "created": "2020-08-18T10:57:57.807-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10005",
+                "toString": "Needs Code Review"
+              }
+            ]
+          },
+          {
+            "id": "342686",
+            "created": "2020-08-18T10:17:59.858-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10106",
+          "id": "10106",
+          "name": "Tech Debt",
+          "subtask": false,
+          "avatarId": 10300
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "23373",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/23373",
+      "key": "API-347",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 12,
+        "total": 12,
+        "histories": [
+          {
+            "id": "342977",
+            "created": "2020-08-18T15:29:18.950-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "22630",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/22630",
+      "key": "API-159",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 4,
+        "total": 4,
+        "histories": [
+          {
+            "id": "341004",
+            "created": "2020-08-11T15:36:14.262-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10001",
+                "toString": "Done"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10117",
+          "id": "10117",
+          "name": "Documentation",
+          "subtask": false
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "19891",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/19891",
+      "key": "API-114",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 22,
+        "total": 22,
+        "histories": [
+          {
+            "id": "341001",
+            "created": "2020-08-11T15:31:34.960-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          },
+          {
+            "id": "151791",
+            "created": "2019-03-18T16:00:00.887-0400",
+            "items": []
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10004",
+          "id": "10004",
+          "name": "Bug",
+          "subtask": false,
+          "avatarId": 10303
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "19280",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/19280",
+      "key": "API-102",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 3,
+        "total": 3,
+        "histories": [
+          {
+            "id": "340991",
+            "created": "2020-08-11T15:24:16.594-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    },
+    {
+      "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+      "id": "19279",
+      "self": "https://somecompany.atlassian.net/rest/api/3/issue/19279",
+      "key": "API-101",
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 10,
+        "total": 10,
+        "histories": [
+          {
+            "id": "340990",
+            "created": "2020-08-11T15:24:12.753-0400",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "fieldId": "status",
+                "from": "10000",
+                "fromString": "To Do",
+                "to": "10050",
+                "toString": "Discarded"
+              }
+            ]
+          }
+        ]
+      },
+      "fields": {
+        "issuetype": {
+          "self": "https://somecompany.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315
+        }
+      }
+    }
+  ]
+}

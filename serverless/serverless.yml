@@ -1,0 +1,40 @@
+service: jira-datastudio
+provider:
+  name: aws
+  stage: ${self:custom.stage}
+  runtime: ruby2.7
+  memorySize: 128
+  logRetentionInDays: 14
+  timeout: 15
+  # httpApi:
+  #   allowedMethods:
+  #     - POST
+  environment:
+    GEM_PATH: /opt/ruby/2.5.0
+    STAGE: ${self:custom.stage}
+custom:
+  stage: ${opt:stage, env:SLS_STAGE, 'dev'}
+functions:
+  report:
+    handler: report.run
+    package:
+      exclude:
+        - ./**
+      include:
+        - report.rb
+        - lib/**/*.rb
+    # layers:
+    #   - { Ref: GemsLambdaLayer }
+    # events:
+    #   - httpApi:
+    #       method: POST
+    #       path: /transit/telegram_bot
+# layers:
+#   gems:
+#     name: ${self:provider.stage}-gems
+#     description: Contains ruby gems
+#     compatibleRuntimes:
+#       - ruby2.7
+#     retain: false
+#     package:
+#       artifact: gem_layer.zip
