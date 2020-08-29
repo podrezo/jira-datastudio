@@ -1,5 +1,10 @@
 class IntervalTree
   def initialize(interval_list)
+    if interval_list.empty?
+      @center = 0
+      @intersect = []
+      return
+    end
     @center = (interval_list.flatten.sum)/(interval_list.length*2)
     left = interval_list.select { |i| i[1] < @center }
     right = interval_list.select { |i| i[0] > @center }
@@ -9,8 +14,8 @@ class IntervalTree
   end
 
   def intersections_at_point(point)
-    return left.intersections_at_point(point) if (point < @center && !@left.nil?)
-    return right.intersections_at_point(point) if (point > @center && !@right.nil?)
+    return @left.intersections_at_point(point) if (point < @center && !@left.nil?)
+    return @right.intersections_at_point(point) if (point > @center && !@right.nil?)
     @intersect
       .select { |i| i[0] <= point && point <= i[1] }
       .length

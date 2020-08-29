@@ -1,6 +1,10 @@
 require_relative "../lib/interval_tree.rb"
 
 describe "IntervalTree" do
+  it "should not blow up for empty inputs" do
+    interval_tree = IntervalTree.new([])
+    assert_equal(0, interval_tree.intersections_at_point(0))
+  end
   it "should have nothing before or after one interval" do
     interval_tree = IntervalTree.new([[5,10]])
     assert_equal(0, interval_tree.intersections_at_point(4))
