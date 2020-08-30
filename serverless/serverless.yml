@@ -6,9 +6,8 @@ provider:
   memorySize: 128
   logRetentionInDays: 14
   timeout: 15
-  # httpApi:
-  #   allowedMethods:
-  #     - POST
+  httpApi:
+    payload: '2.0'
   environment:
     GEM_PATH: /opt/ruby/2.5.0
     STAGE: ${self:custom.stage}
@@ -25,10 +24,10 @@ functions:
         - lib/**/*.rb
     # layers:
     #   - { Ref: GemsLambdaLayer }
-    # events:
-    #   - httpApi:
-    #       method: POST
-    #       path: /transit/telegram_bot
+    events:
+      - httpApi:
+          method: POST
+          path: /jira-kanban
 # layers:
 #   gems:
 #     name: ${self:provider.stage}-gems

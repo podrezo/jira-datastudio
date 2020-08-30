@@ -1,13 +1,15 @@
+require "json"
 require_relative "./lib/jira"
 require_relative "./lib/issue"
 require_relative "./lib/daily_report"
 
 def run(event:, context:)
-  verbose = event["verbose"]
-  tenant_name = event["tenant_name"]
-  username = event["username"]
-  token = event["token"]
-  jql = event["jql"]
+  body = JSON.parse(event["body"])
+  verbose = body["verbose"]
+  tenant_name = body["tenant_name"]
+  username = body["username"]
+  token = body["token"]
+  jql = body["jql"]
   jira = Jira.new(
     tenant_name: tenant_name,
     username: username,
@@ -20,5 +22,7 @@ def run(event:, context:)
   report = DailyReport.new(
     issues.map { |raw_issue| Issue.new(raw_issue) }
   )
-  report.perform
+  data = report.perform
+
+  data
 end

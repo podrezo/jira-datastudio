@@ -59,16 +59,6 @@ function getSchema(request) {
   return { 'schema': fields.build() };
 }
 
-function __tryParseJson(text) {
-  try {
-    return JSON.parse(text);
-  } catch (e) {
-    Logger.log('Tried to parse invalid JSON body:');
-    Logger.log(text);
-    sendUserError('Received an invalid response from the API; try refreshing the data later');
-  }
-}
-
 // REQUEST OBJECT EXAMPLE:
 // {
 //   "configParams": object,
@@ -101,104 +91,30 @@ function getData(request) {
     fields = _getField(fields, fieldId);
   });
 
-  const data = [
-    {
-      "date": "20200812",
-      "wip": 1,
-      "cumulative_finished_issues": 0,
-      "throughput": 0
-    },
-    {
-      "date": "20200813",
-      "wip": 1,
-      "cumulative_finished_issues": 0,
-      "throughput": 0
-    },
-    {
-      "date": "20200814",
-      "wip": 1,
-      "cumulative_finished_issues": 0,
-      "throughput": 0
-    },
-    {
-      "date": "20200815",
-      "wip": 1,
-      "cumulative_finished_issues": 0,
-      "throughput": 0
-    },
-    {
-      "date": "20200816",
-      "wip": 1,
-      "cumulative_finished_issues": 0,
-      "throughput": 0
-    },
-    {
-      "date": "20200817",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200818",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200819",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200820",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200821",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200822",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200823",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 1
-    },
-    {
-      "date": "20200824",
-      "wip": 0,
-      "cumulative_finished_issues": 1,
-      "throughput": 0
-    },
-    {
-      "date": "20200825",
-      "wip": 1,
-      "cumulative_finished_issues": 2,
-      "throughput": 1
-    },
-    {
-      "date": "20200826",
-      "wip": 0,
-      "cumulative_finished_issues": 3,
-      "throughput": 2
-    },
-    {
-      "date": "20200827",
-      "wip": 0,
-      "cumulative_finished_issues": 4,
-      "throughput": 3
-    }
-  ];
+  const endpoint = 'https://s4qjj6vqha.execute-api.us-east-1.amazonaws.com/jira-kanban';
+  const requestOptions = {
+    muteHttpExceptions: false,
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify({
+      tenant_name: request.configParams.atlassianTenantName,
+      username: request.configParams.atlassianUsername,
+      token: request.configParams.atlassianToken,
+      jql: request.configParams.jqlIssueQuery,
+    })
+  };
+  const httpResponse = UrlFetchApp.fetch(endpoint, requestOptions);
+  // handle errors from the API
+  if(httpResponse.getResponseCode() !== 200) {
+    Logger.log('An exception occurred accessing the API:');
+    Logger.log(httpResponse.getResponseCode());
+    Logger.log(httpResponse.getAllHeaders());
+    Logger.log(httpResponse.getContentText());
+    sendUserError(`The API replied with an unsuccessful status code of ${httpResponse.getResponseCode()}`);
+    return;
+  }
+  const data = JSON.parse(httpResponse.getContentText());
+
   const rows = data.map(dataPoint => {
     return {
       values: fieldIds.map(fieldId => dataPoint[fieldId])
