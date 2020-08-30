@@ -1,0 +1,18 @@
+{
+  "timeZone": "America/Toronto",
+  "dependencies": {},
+  "dataStudio": {
+    "name": "Jira",
+    "logoUrl": "https://wac-cdn.atlassian.com/assets/img/favicons/atlassian/apple-touch-icon-57x57.png",
+    "company": "Petro Podrezo",
+    "companyUrl": "https://podrezo.com/",
+    "addonUrl": "https://podrezo.com/",
+    "supportUrl": "https://podrezo.com/",
+    "shortDescription": "Jira issue stats",
+    "description": "Jira issue stats",
+    "authType": ["NONE"],
+    "feeType": ["FREE"]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
