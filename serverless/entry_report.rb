@@ -3,6 +3,7 @@ require_relative "./lib/issue"
 require_relative "./lib/daily_report"
 
 def run(event:, context:)
+  verbose = event["verbose"]
   tenant_name = event["tenant_name"]
   username = event["username"]
   token = event["token"]
@@ -14,7 +15,7 @@ def run(event:, context:)
   )
   result = jira.issue_search(jql)
   issues = result["issues"]
-  # puts "Fetched #{issues.length} issues from tenant #{tenant_name}"
+  puts "Fetched #{issues.length} issues from tenant #{tenant_name}" if verbose
   
   report = DailyReport.new(
     issues.map { |raw_issue| Issue.new(raw_issue) }

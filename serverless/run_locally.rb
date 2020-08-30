@@ -7,6 +7,7 @@ if ENV["JIRA_TENANT"].nil?
 end
 
 event = {
+  "verbose" => false,
   "tenant_name" => ENV["JIRA_TENANT"],
   "username" => ENV["JIRA_USERNAME"],
   "token" => ENV["JIRA_TOKEN"],
