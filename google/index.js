@@ -1,6 +1,6 @@
 const communityConnector = DataStudioApp.createCommunityConnector();
 const dsTypes = communityConnector.FieldType;
-// const dsAggregationTypes = communityConnector.AggregationType;
+const dsAggregationTypes = communityConnector.AggregationType;
 
 function _getField(fields, fieldId) {
   switch (fieldId) {
@@ -32,6 +32,14 @@ function _getField(fields, fieldId) {
         .setName('Throughput')
         .setType(dsTypes.NUMBER);
       break;
+    case 'cumulative_finished_issues_plus_wip':
+      fields
+        .newMetric()
+        .setId('cumulative_finished_issues_plus_wip')
+        .setName('Cumulative Finished Issues + WIP')
+        .setType(dsTypes.NUMBER)
+        .setFormula('$cumulative_finished_issues + $wip');
+      break;
     default:
       throw new Error(`Invalid fieldId: ${fieldId}`)
   }
@@ -50,7 +58,7 @@ function _getField(fields, fieldId) {
 // }
 function getSchema(request) {
   let fields = communityConnector.getFields();
-  const fieldIds = request.fields ? request.fields.map(field => field.name) : ['date', 'wip', 'cumulative_finished_issues', 'throughput'];
+  const fieldIds = request.fields ? request.fields.map(field => field.name) : ['date', 'wip', 'cumulative_finished_issues', 'throughput', 'cumulative_finished_issues_plus_wip'];
   fieldIds.forEach(fieldId => {
     fields = _getField(fields, fieldId);
   });
@@ -135,25 +143,6 @@ function getConfig(request) {
 
   config
     .newTextInput()
-    .setId('atlassianTenantName')
-    .setName('Atlassian tenant name (e.g. the subdomain. If you sign in at my-company.atlassian.net then this value is "my-company")')
-    .setPlaceholder('my-company');
-
-  config
-    .newTextInput()
-    .setId('atlassianUsername')
-    .setName('Your Atlassian username (typically your e-mail address)')
-    .setPlaceholder('joe@my-company.com');
-
-  config
-    .newTextInput()
-    .setId('atlassianToken')
-    .setName('Your security token to access the API')
-    .setHelpText('You can get this value by going to your account settings, then "security" and then "Create and manage API tokens". Just copy paste the value here.')
-    .setPlaceholder('This is required to access the API and pull down data');
-
-  config
-    .newTextInput()
     .setId('jqlIssueQuery')
     .setName('JQL Issue Query')
     .setHelpText('If you go to your "Issues" view you can filter down to the issues you are interested in then switch to "advanced" view to see the JQL query.')
@@ -168,14 +157,77 @@ function isAdminUser() {
 }
 
 function getAuthType() {
-  var response = { type: 'NONE' };
-  return response;
+  return communityConnector.newAuthTypeResponse()
+    .setAuthType(communityConnector.AuthType.USER_TOKEN)
+    // .setHelpUrl('https://www.example.org/connector-auth-help')
+    .build();
+}
+
+function isAuthValid() {
+  const userProperties = PropertiesService.getUserProperties();
+  const username = userProperties.getProperty('jirakanban.username');
+  const token = userProperties.getProperty('jirakanban.token');
+  const tenant = userProperties.getProperty('jirakanban.tenant');
+
+  if(username === null || token === null || tenant === null) {
+    return false;
+  }
+
+  // This endpoint just gives some details about the currently logged in user.
+  // We use it to ensure that the token provided has access to the API
+  const endpoint = `https://${tenant}.atlassian.net/rest/api/3/myself`;
+  const requestOptions = {
+    muteHttpExceptions: false,
+    method: 'get',
+    headers: {
+      Authorization: 'Basic ' + Utilities.base64Encode(username + ':' + token)
+    }
+  };
+  const httpResponse = UrlFetchApp.fetch(endpoint, requestOptions);
+  const responseCode = httpResponse.getResponseCode();
+  switch(responseCode) {
+    case 200:
+      return true;
+    case 401:
+      return false;
+    default:
+      sendUserError(`Received HTTP status ${responseCode} during auth check. The credentials may be wrong or Jira might be down.`)
+  }
+}
+
+
+function setCredentials(request) {
+  // the "username" field must actually contain both the tenant and username because of DataStudio limitations
+  // They should be separated by a single forward slash ("/") character, where the tenant is first.
+  // For example: my-company/myuser@mycompany.com
+  const usernameParts = request.userToken.username.split('/');
+  if(usernameParts.length != 2) {
+    return { errorCode: 'INVALID_CREDENTIALS' }
+  }
+  const tenant = usernameParts[0];
+  const username = usernameParts[1];
+  const token = request.userToken.token;
+
+  const userProperties = PropertiesService.getUserProperties();
+  userProperties.setProperty('jirakanban.username', username);
+  userProperties.setProperty('jirakanban.token', token);
+  userProperties.setProperty('jirakanban.tenant', tenant);
+  return {
+    errorCode: 'NONE'
+  };
+}
+
+function resetAuth() {
+  const userProperties = PropertiesService.getUserProperties();
+  userProperties.deleteProperty('jirakanban.username');
+  userProperties.deleteProperty('jirakanban.token');
+  userProperties.deleteProperty('jirakanban.tenant');
+  return true;
 }
 
 // Helper method to show an error to the user
 function sendUserError(message) {
-  var cc = DataStudioApp.createCommunityConnector();
-  cc.newUserError()
+  communityConnector.newUserError()
     .setText(message)
     .throwException();
 }
