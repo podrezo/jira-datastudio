@@ -5,7 +5,6 @@ require_relative "./lib/daily_report"
 
 def run(event:, context:)
   body = JSON.parse(event["body"])
-  verbose = body["verbose"]
   tenant_name = body["tenant_name"]
   username = body["username"]
   token = body["token"]
@@ -15,12 +14,10 @@ def run(event:, context:)
     username: username,
     token: token,
   )
-  result = jira.issue_search(jql)
-  issues = result["issues"]
-  puts "Fetched #{issues.length} issues from tenant #{tenant_name}" if verbose
+  jira.issue_search(jql)
   
   report = DailyReport.new(
-    issues.map { |raw_issue| Issue.new(raw_issue) }
+    jira.issues.map { |raw_issue| Issue.new(raw_issue) }
   )
   data = report.perform
 
