@@ -100,6 +100,27 @@ describe "DailyReport" do
     assert_equal(expected_report, report.perform)
   end
 
+  it "should be able to filter dates of interest when performing the report" do
+    report = DailyReport.new([issue2, issue3, issue1])
+    start_date = DateTime.new(2018,4,21)
+    end_date = DateTime.new(2018,4,23)
+    expected_report = [
+      {
+        date: "20180421",
+        wip: 2,
+        cumulative_finished_issues: 1,
+        throughput: 1,
+      },
+      {
+        date: "20180422",
+        wip: 1,
+        cumulative_finished_issues: 2,
+        throughput: 2,
+      },
+    ]
+    assert_equal(expected_report, report.perform(start_date, end_date))
+  end
+
   it "should not blow up when there is just one, unfinished issue" do
     issue_with_no_started_date = OpenStruct.new(
       key: "XYZ-1",

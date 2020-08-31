@@ -99,17 +99,21 @@ function getData(request) {
     fields = _getField(fields, fieldId);
   });
 
+  const payload = {
+    tenant_name: request.configParams.atlassianTenantName,
+    username: request.configParams.atlassianUsername,
+    token: request.configParams.atlassianToken,
+    jql: request.configParams.jqlIssueQuery,
+  };
+  if(request.dateRange) {
+    payload.dateRange = request.dateRange;
+  }
   const endpoint = 'https://s4qjj6vqha.execute-api.us-east-1.amazonaws.com/jira-kanban';
   const requestOptions = {
     muteHttpExceptions: false,
     method: 'post',
     contentType: 'application/json',
-    payload: JSON.stringify({
-      tenant_name: request.configParams.atlassianTenantName,
-      username: request.configParams.atlassianUsername,
-      token: request.configParams.atlassianToken,
-      jql: request.configParams.jqlIssueQuery,
-    })
+    payload: JSON.stringify(payload)
   };
   const httpResponse = UrlFetchApp.fetch(endpoint, requestOptions);
   // handle errors from the API
@@ -146,9 +150,9 @@ function getConfig(request) {
     .setId('jqlIssueQuery')
     .setName('JQL Issue Query')
     .setHelpText('If you go to your "Issues" view you can filter down to the issues you are interested in then switch to "advanced" view to see the JQL query.')
-    .setPlaceholder('project = XYZ AND issuetype != Sub-task AND resolved > -30d');
+    .setPlaceholder('project = XYZ AND issuetype != Sub-task AND AND type = "Spike"');
 
-  config.setDateRangeRequired(false);
+  config.setDateRangeRequired(true);
   return config.build();
 }
 

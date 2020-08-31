@@ -104,10 +104,4 @@ describe "Issue" do
       assert_equal([], Issue.status_matrix(JSON.parse(histories_json)))
     end
   end
-
-  describe "parse_datetime" do
-    it "should strip timezone information" do
-      assert_equal("2020-08-27T11:23:36+00:00", Issue.parse_datetime("2020-08-27T11:23:36.012-0400").to_s)
-    end
-  end
 end

@@ -9,13 +9,17 @@ class DailyReport
     @interval_tree = IntervalTree.new(intervals)
   end
 
-  def perform
+  def perform(start_date = nil, end_date = nil)
     return [] if @issues_sorted_by_started.empty?
     cumulative_finished_issues = 0
     timeline.to_a
-      .map do |point|
+      .filter_map do |point|
+        # Update cumulative finished issues regardless of if we're in the range
         issues_finished_this_day = issues_completed_within_range(point - 1, point)
         cumulative_finished_issues += issues_finished_this_day
+        # Do not bother creating data points for days outside of the supplied range
+        next if !start_date.nil? && point < start_date
+        next if !end_date.nil? && point > end_date
         {
           date: point.strftime("%Y%m%d"),
           wip: @interval_tree.intersections_at_point(point.strftime("%s").to_i),
