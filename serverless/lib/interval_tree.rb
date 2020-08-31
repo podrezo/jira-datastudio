@@ -5,10 +5,11 @@ class IntervalTree
       @intersect = []
       return
     end
-    @center = (interval_list.flatten.sum)/(interval_list.length*2)
-    left = interval_list.select { |i| i[1] < @center }
+    all_points = interval_list.flatten.compact
+    @center = (all_points.sum)/(all_points.length)
+    left = interval_list.select { |i| !i[1].nil? && i[1] < @center }
     right = interval_list.select { |i| i[0] > @center }
-    @intersect = interval_list.select { |i| i[0] <= @center && @center <= i[1] }
+    @intersect = interval_list.select { |i| i[0] <= @center && (i[1].nil? || @center <= i[1]) }
     @left = IntervalTree.new(left) if left.length > 0
     @right = IntervalTree.new(right) if right.length > 0
   end
@@ -17,7 +18,7 @@ class IntervalTree
     return @left.intersections_at_point(point) if (point < @center && !@left.nil?)
     return @right.intersections_at_point(point) if (point > @center && !@right.nil?)
     @intersect
-      .select { |i| i[0] <= point && point <= i[1] }
+      .select { |i| i[0] <= point && (i[1].nil? || point <= i[1]) }
       .length
   end
 end

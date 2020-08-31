@@ -49,4 +49,11 @@ describe "IntervalTree" do
     assert_equal(4, interval_tree.intersections_at_point(5))
     assert_equal(2, interval_tree.intersections_at_point(9))
   end
+  it "should work with the 'end' interval being nil, representing the future" do
+    interval_tree = IntervalTree.new([[5,nil]])
+    assert_equal(0, interval_tree.intersections_at_point(4))
+    assert_equal(1, interval_tree.intersections_at_point(5))
+    assert_equal(1, interval_tree.intersections_at_point(7))
+    assert_equal(1, interval_tree.intersections_at_point(1000))
+  end
 end

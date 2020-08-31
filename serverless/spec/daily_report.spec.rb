@@ -121,6 +121,32 @@ describe "DailyReport" do
     assert_equal(expected_report, report.perform(start_date, end_date))
   end
 
+  it "should count unfinished issues for WIP" do
+    unfinished_issue = OpenStruct.new(
+      key: "XYZ-125",
+      type: "Story",
+      started: DateTime.new(2018, 4, 20, 11, 25),
+      finished: nil,
+      lead_time: nil
+    )
+    report = DailyReport.new([unfinished_issue, issue1])
+    expected_report = [
+      {
+        date: "20180420",
+        wip: 2,
+        cumulative_finished_issues: 0,
+        throughput: 0,
+      },
+      {
+        date: "20180421",
+        wip: 1,
+        cumulative_finished_issues: 1,
+        throughput: 1,
+      },
+    ]
+    assert_equal(expected_report, report.perform)
+  end
+
   it "should not blow up when there is just one, unfinished issue" do
     issue_with_no_started_date = OpenStruct.new(
       key: "XYZ-1",
@@ -130,7 +156,14 @@ describe "DailyReport" do
       lead_time: nil
     )
     report = DailyReport.new([issue_with_no_started_date])
-    assert_equal([], report.perform)
+    assert_equal([
+      {
+        date: "20180420",
+        wip: 1,
+        cumulative_finished_issues: 0,
+        throughput: 0,
+      }
+    ], report.perform)
   end
 
   it "should not blow up when there are unstarted issues" do

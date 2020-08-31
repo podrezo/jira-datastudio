@@ -2,10 +2,12 @@ require_relative "./interval_tree"
 
 class DailyReport
   def initialize(issues)
-    issues_with_dates = issues.select { |issue| !issue.started.nil? && !issue.finished.nil? }
-    @issues_sorted_by_started = issues_with_dates.sort { |issue| issue.started }
-    @issues_sorted_by_finished = issues_with_dates.sort { |issue| issue.finished }
-    intervals = issues_with_dates.map { |issue| [issue.started.strftime("%s").to_i, issue.finished.strftime("%s").to_i] }
+    issues_that_were_started = issues.select { |issue| !issue.started.nil? } # This is purely to optimize not having to go through unstarted issues
+    @issues_sorted_by_started = issues_that_were_started.sort { |issue| issue.started }
+    @issues_sorted_by_finished = issues_that_were_started
+      .select { |issue| !issue.finished.nil? }
+      .sort { |issue| issue.finished }
+    intervals = issues_that_were_started.map { |issue| [issue.started.strftime("%s").to_i, issue.finished&.strftime("%s")&.to_i] }
     @interval_tree = IntervalTree.new(intervals)
   end
 
@@ -33,7 +35,7 @@ class DailyReport
     earliest_date = DailyReport.daily_report_point(@issues_sorted_by_started.first.started)
     latest_date = DailyReport.daily_report_point([
       @issues_sorted_by_started.last.started,
-      @issues_sorted_by_finished.last.finished,
+      @issues_sorted_by_finished.empty? ? DateTime.new(0) : @issues_sorted_by_finished.last.finished,
     ].max)
     # Step by one day
     (earliest_date..latest_date).step(1)
@@ -47,7 +49,7 @@ class DailyReport
 
   def issues_completed_within_range(from, to)
     @issues_sorted_by_finished
-      .select { |issue| from < issue.finished && issue.finished < to}
+      .select { |issue| from < issue.finished && issue.finished < to }
       .length
   end
 end
