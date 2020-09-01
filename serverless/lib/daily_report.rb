@@ -14,11 +14,10 @@ class DailyReport
 
   def perform(range)
     # The "-1" is because we only want to count the ones that were finished BEFORE this date
-    # That way, we can count the ones completed on this day separately (for throughput)
+    # That way, we can count the ones completed on this day separately
     cumulative_finished_issues = issues_completed_within_range(DateTime.new(0), range.first - 1)
     range.to_a
       .map do |point|
-        # Update cumulative finished issues regardless of if we're in the range
         issues_finished_this_day = issues_completed_within_range(point - 1, point)
         cumulative_finished_issues += issues_finished_this_day
         {
