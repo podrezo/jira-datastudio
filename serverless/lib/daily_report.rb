@@ -2,12 +2,13 @@ require_relative "./interval_tree"
 
 class DailyReport
   def initialize(issues)
-    issues_that_were_started = issues.select { |issue| !issue.started.nil? } # This is purely to optimize not having to go through unstarted issues
-    @issues_sorted_by_started = issues_that_were_started.sort { |issue| issue.started }
-    @issues_sorted_by_finished = issues_that_were_started
+    @issues_sorted_by_started = issues
+      .select { |issue| !issue.started.nil? }
+      .sort { |issue| issue.started }
+    @issues_sorted_by_finished = @issues_sorted_by_started
       .select { |issue| !issue.finished.nil? }
       .sort { |issue| issue.finished }
-    intervals = issues_that_were_started.map { |issue| [issue.started.strftime("%s").to_i, issue.finished&.strftime("%s")&.to_i] }
+    intervals = @issues_sorted_by_started.map { |issue| [issue.started.strftime("%s").to_i, issue.finished&.strftime("%s")&.to_i] }
     @interval_tree = IntervalTree.new(intervals)
   end
 
