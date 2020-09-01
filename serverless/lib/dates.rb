@@ -18,4 +18,8 @@ class Dates
   def self.diff_dates_in_seconds(start_time, end_time)
     ((end_time - start_time) * 24 * 60 * 60).to_i
   end
+
+  def self.end_of_day(datetime)
+    DateTime.new(datetime.year, datetime.month, datetime.day, 23, 59, 59)
+  end
 end

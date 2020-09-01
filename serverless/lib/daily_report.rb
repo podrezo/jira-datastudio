@@ -11,17 +11,15 @@ class DailyReport
     @interval_tree = IntervalTree.new(intervals)
   end
 
-  def perform(start_date = nil, end_date = nil)
-    return [] if @issues_sorted_by_started.empty?
-    cumulative_finished_issues = 0
-    timeline.to_a
-      .filter_map do |point|
+  def perform(range)
+    # The "-1" is because we only want to count the ones that were finished BEFORE this date
+    # That way, we can count the ones completed on this day separately (for throughput)
+    cumulative_finished_issues = issues_completed_within_range(DateTime.new(0), range.first - 1)
+    range.to_a
+      .map do |point|
         # Update cumulative finished issues regardless of if we're in the range
         issues_finished_this_day = issues_completed_within_range(point - 1, point)
         cumulative_finished_issues += issues_finished_this_day
-        # Do not bother creating data points for days outside of the supplied range
-        next if !start_date.nil? && point < start_date
-        next if !end_date.nil? && point > end_date
         {
           date: point.strftime("%Y%m%d"),
           wip: @interval_tree.intersections_at_point(point.strftime("%s").to_i),
@@ -29,20 +27,6 @@ class DailyReport
           throughput: issues_completed_within_range(point - 7, point)
         }
       end
-  end
-
-  def timeline
-    earliest_date = DailyReport.daily_report_point(@issues_sorted_by_started.first.started)
-    latest_date = DailyReport.daily_report_point([
-      @issues_sorted_by_started.last.started,
-      @issues_sorted_by_finished.empty? ? DateTime.new(0) : @issues_sorted_by_finished.last.finished,
-    ].max)
-    # Step by one day
-    (earliest_date..latest_date).step(1)
-  end
-
-  def self.daily_report_point(datetime)
-    DateTime.new(datetime.year, datetime.month, datetime.day, 23, 59, 59)
   end
 
   private

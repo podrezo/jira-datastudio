@@ -10,6 +10,8 @@ def run(event:, context:)
   username = body["username"]
   token = body["token"]
   jql = body["jql"]
+  start_date = Dates.parse_google_date(body["dateRange"]["startDate"])
+  end_date = Dates.parse_google_date(body["dateRange"]["endDate"])
   jira = Jira.new(
     tenant_name: tenant_name,
     username: username,
@@ -24,13 +26,6 @@ def run(event:, context:)
     jira.issues.map { |raw_issue| Issue.new(raw_issue) }
   )
 
-  if(body["dateRange"] && body["dateRange"]["startDate"] && body["dateRange"]["endDate"])
-    start_date = Dates.parse_google_date(body["dateRange"]["startDate"])
-    end_date = Dates.parse_google_date(body["dateRange"]["endDate"])
-    data = report.perform(start_date, end_date)
-  else
-    data = report.perform
-  end
-
-  data
+  report_date_range = (Dates.end_of_day(start_date) .. Dates.end_of_day(end_date)).step(1)
+  report.perform(report_date_range)
 end

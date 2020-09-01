@@ -1,6 +1,12 @@
 require "ostruct"
 require_relative "../lib/daily_report.rb"
 
+def test_date_range(day_from, day_to)
+  from = DateTime.new(2018, 4, day_from, 23, 59, 59)
+  to = DateTime.new(2018, 4, day_to, 23, 59, 59)
+  (from..to).step(1)
+end
+
 describe "DailyReport" do
   let (:issue1_started_date) {
     DateTime.new(2018, 4, 20, 16, 20, 42)
@@ -50,8 +56,54 @@ describe "DailyReport" do
     )
   }
 
+  it "should work for input dates that have to issues (before)" do
+    report = DailyReport.new([])
+    expected_report = [
+      {
+        date: "20180420",
+        wip: 0,
+        cumulative_finished_issues: 0,
+        throughput: 0,
+      },
+      {
+        date: "20180421",
+        wip: 0,
+        cumulative_finished_issues: 0,
+        throughput: 0,
+      },
+      {
+        date: "20180422",
+        wip: 0,
+        cumulative_finished_issues: 0,
+        throughput: 0,
+      },
+    ]
+    assert_equal(expected_report, report.perform(test_date_range(20, 22)))
+  end
+
+  it "should work for input dates that have to issues (after)" do
+    report = DailyReport.new([issue1])
+    expected_report = [
+      {
+        date: "20180424",
+        wip: 0,
+        cumulative_finished_issues: 1,
+        throughput: 1,
+      },
+      {
+        date: "20180425",
+        wip: 0,
+        cumulative_finished_issues: 1,
+        throughput: 1,
+      },
+    ]
+    assert_equal(expected_report, report.perform(test_date_range(24, 25)))
+  end
+
   it "should be able to generate a report for one issue" do
     report = DailyReport.new([issue1])
+    start_date = DateTime.new(2018,4,20)
+    end_date = DateTime.new(2018,4,21)
     expected_report = [
       {
         date: "20180420",
@@ -66,11 +118,13 @@ describe "DailyReport" do
         throughput: 1,
       },
     ]
-    assert_equal(expected_report, report.perform)
+    assert_equal(expected_report, report.perform(test_date_range(20, 21)))
   end
 
   it "should be able to generate a report for multiple issues" do
     report = DailyReport.new([issue2, issue3, issue1])
+    start_date = DateTime.new(2018,4,20)
+    end_date = DateTime.new(2018,4,23)
     expected_report = [
       {
         date: "20180420",
@@ -97,13 +151,13 @@ describe "DailyReport" do
         throughput: 3,
       },
     ]
-    assert_equal(expected_report, report.perform)
+    assert_equal(expected_report, report.perform(test_date_range(20, 23)))
   end
 
   it "should be able to filter dates of interest when performing the report" do
     report = DailyReport.new([issue2, issue3, issue1])
     start_date = DateTime.new(2018,4,21)
-    end_date = DateTime.new(2018,4,23)
+    end_date = DateTime.new(2018,4,22)
     expected_report = [
       {
         date: "20180421",
@@ -118,7 +172,7 @@ describe "DailyReport" do
         throughput: 2,
       },
     ]
-    assert_equal(expected_report, report.perform(start_date, end_date))
+    assert_equal(expected_report, report.perform(test_date_range(21, 22)))
   end
 
   it "should count unfinished issues for WIP" do
@@ -129,6 +183,8 @@ describe "DailyReport" do
       finished: nil,
       lead_time: nil
     )
+    start_date = DateTime.new(2018,4,20)
+    end_date = DateTime.new(2018,4,21)
     report = DailyReport.new([unfinished_issue, issue1])
     expected_report = [
       {
@@ -144,7 +200,7 @@ describe "DailyReport" do
         throughput: 1,
       },
     ]
-    assert_equal(expected_report, report.perform)
+    assert_equal(expected_report, report.perform(test_date_range(20, 21)))
   end
 
   it "should not blow up when there is just one, unfinished issue" do
@@ -156,6 +212,8 @@ describe "DailyReport" do
       lead_time: nil
     )
     report = DailyReport.new([issue_with_no_started_date])
+    start_date = DateTime.new(2018,4,20)
+    end_date = DateTime.new(2018,4,20)
     assert_equal([
       {
         date: "20180420",
@@ -163,7 +221,7 @@ describe "DailyReport" do
         cumulative_finished_issues: 0,
         throughput: 0,
       }
-    ], report.perform)
+    ], report.perform(test_date_range(20, 20)))
   end
 
   it "should not blow up when there are unstarted issues" do
@@ -175,6 +233,8 @@ describe "DailyReport" do
       lead_time: nil
     )
     report = DailyReport.new([issue_with_no_started_date, issue1])
+    start_date = DateTime.new(2018,4,20)
+    end_date = DateTime.new(2018,4,21)
     expected_report = [
       {
         date: "20180420",
@@ -190,15 +250,6 @@ describe "DailyReport" do
       },
     ]
     # Same as the test for issue1, the other issue is ignored
-    assert_equal(expected_report, report.perform)
-  end
-
-  describe "daily_report_point" do
-    it "should set a consistent point on the same day no matter the input" do
-      point1 = DailyReport.daily_report_point(issue1_started_date)
-      point2 = DailyReport.daily_report_point(issue1_finished_date)
-      assert_equal(point1.hour, point2.hour)
-      assert_equal(point1.minute, point2.minute)
-    end
+    assert_equal(expected_report, report.perform(test_date_range(20, 21)))
   end
 end
