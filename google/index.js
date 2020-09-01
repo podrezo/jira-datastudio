@@ -29,7 +29,7 @@ function _getField(fields, fieldId) {
       fields
         .newMetric()
         .setId('throughput')
-        .setName('Throughput')
+        .setName('Throughput (7 Days)')
         .setType(dsTypes.NUMBER);
       break;
     case 'cumulative_finished_issues_plus_wip':
