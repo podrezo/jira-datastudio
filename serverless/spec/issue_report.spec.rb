@@ -61,19 +61,19 @@ describe "IssueReport" do
     expected_report = [
       {
         date: Dates.format_as_google_ymd(issue1.finished),
-        lead_time: issue1.lead_time,
+        lead_time: issue1.lead_time.to_s,
         key: issue1.key,
         type: issue1.type,
       },
       {
         date: Dates.format_as_google_ymd(issue2.finished),
-        lead_time: issue2.lead_time,
+        lead_time: issue2.lead_time.to_s,
         key: issue2.key,
         type: issue2.type,
       },
       {
         date: Dates.format_as_google_ymd(issue3.finished),
-        lead_time: issue3.lead_time,
+        lead_time: issue3.lead_time.to_s,
         key: issue3.key,
         type: issue3.type,
       },
@@ -96,7 +96,7 @@ describe "IssueReport" do
     expected_report = [
       {
         date: Dates.format_as_google_ymd(issue3.finished),
-        lead_time: issue3.lead_time,
+        lead_time: issue3.lead_time.to_s,
         key: issue3.key,
         type: issue3.type,
       },

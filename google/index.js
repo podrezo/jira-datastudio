@@ -4,6 +4,7 @@ const dsAggregationTypes = communityConnector.AggregationType;
 
 function _getField(fields, fieldId) {
   switch (fieldId) {
+    // All report types
     case 'type':
       fields
         .newDimension()
@@ -18,6 +19,7 @@ function _getField(fields, fieldId) {
         .setName('Date')
         .setType(dsTypes.YEAR_MONTH_DAY);
       break;
+    // Daily Report
     case 'wip':
       fields
         .newMetric()
@@ -59,6 +61,22 @@ function _getField(fields, fieldId) {
         .setFormula('$cumulative_finished_issues + $wip')
         .setAggregation(dsAggregationTypes.SUM);
       break;
+    // Issue Report
+    case 'lead_time':
+      fields
+        .newMetric()
+        .setId('lead_time')
+        .setName('Lead Time')
+        .setType(dsTypes.DURATION)
+        .setAggregation(dsAggregationTypes.AVG);
+      break;
+    case 'key':
+      fields
+        .newDimension()
+        .setId('key')
+        .setName('Issue Key')
+        .setType(dsTypes.TEXT);
+      break;
     default:
       throw new Error(`Invalid fieldId: ${fieldId}`)
   }
@@ -77,12 +95,23 @@ function _getField(fields, fieldId) {
 // }
 function getSchema(request) {
   let fields = communityConnector.getFields();
-  const fieldIds = request.fields ? request.fields.map(field => field.name) : ['type', 'date', 'wip', 'cumulative_finished_issues', 'throughput_day', 'throughput_week', 'cumulative_finished_issues_plus_wip'];
-  fieldIds.forEach(fieldId => {
-    fields = _getField(fields, fieldId);
-  });
-  fields.setDefaultMetric('wip');
-  fields.setDefaultDimension('date');
+  switch(request.configParams.reportType) {
+    case 'daily':
+      ['type', 'date', 'wip', 'cumulative_finished_issues', 'throughput_day',
+        'throughput_week', 'cumulative_finished_issues_plus_wip'].forEach(fieldId => {
+        fields = _getField(fields, fieldId);
+      });
+      fields.setDefaultMetric('wip');
+      fields.setDefaultDimension('date');
+      break;
+    case 'issue':
+      ['type', 'date', 'lead_time', 'key'].forEach(fieldId => {
+        fields = _getField(fields, fieldId);
+      });
+      fields.setDefaultMetric('lead_time');
+      fields.setDefaultDimension('type');;
+      break;
+  }
   return { 'schema': fields.build() };
 }
 
@@ -118,18 +147,22 @@ function getData(request) {
     fields = _getField(fields, fieldId);
   });
 
+  const userProperties = PropertiesService.getUserProperties();
+  const username = userProperties.getProperty('jirakanban.username');
+  const token = userProperties.getProperty('jirakanban.token');
+  const tenant = userProperties.getProperty('jirakanban.tenant');
+
   const payload = {
-    tenant_name: request.configParams.atlassianTenantName,
-    username: request.configParams.atlassianUsername,
-    token: request.configParams.atlassianToken,
+    tenant_name: tenant,
+    username: username,
+    token: token,
     jql: request.configParams.jqlIssueQuery,
+    report: request.configParams.reportType,
+    dateRange: request.dateRange,
   };
-  if(request.dateRange) {
-    payload.dateRange = request.dateRange;
-  }
   const endpoint = 'https://s4qjj6vqha.execute-api.us-east-1.amazonaws.com/jira-kanban';
   const requestOptions = {
-    muteHttpExceptions: false,
+    muteHttpExceptions: true,
     method: 'post',
     contentType: 'application/json',
     payload: JSON.stringify(payload)
@@ -171,6 +204,15 @@ function getConfig(request) {
     .setHelpText('If you go to your "Issues" view you can filter down to the issues you are interested in then switch to "advanced" view to see the JQL query.')
     .setPlaceholder('project = XYZ AND issuetype != Sub-task AND type not in ("Epic")');
 
+  config
+    .newSelectSingle()
+    .setId('reportType')
+    .setName('Report Type')
+    .setHelpText('')
+    .setAllowOverride(true)
+    .addOption(config.newOptionBuilder().setLabel('Daily Report (WIP, Throughput, Cumulative)').setValue('daily'))
+    .addOption(config.newOptionBuilder().setLabel('Issue Report (Lead time)').setValue('issue'));
+
   config.setDateRangeRequired(true);
   return config.build();
 }
@@ -192,7 +234,7 @@ function isAuthValid() {
   const token = userProperties.getProperty('jirakanban.token');
   const tenant = userProperties.getProperty('jirakanban.tenant');
 
-  if(username === null || token === null || tenant === null) {
+  if(!username || !token || !tenant) {
     return false;
   }
 

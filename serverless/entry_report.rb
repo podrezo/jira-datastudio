@@ -5,17 +5,28 @@ require_relative "./lib/issue"
 require_relative "./lib/daily_report"
 require_relative "./lib/issue_report"
 
+def blank?(value)
+  !value || value.empty?
+end
+
 def run(event:, context:)
   body = JSON.parse(event["body"])
   tenant_name = body["tenant_name"]
   username = body["username"]
   token = body["token"]
+  return { statusCode: 401 } if blank?(tenant_name) || blank?(username) || blank?(token)
+
   jql = body["jql"]
   report = body["report"]
+  return { statusCode: 400 } if blank?(jql) || blank?(report) || blank?(token)
+
+
   # The format of both dates is YYYY-MM-DD
   # https://developers.google.com/datastudio/connector/reference#getdata
+  return { statusCode: 400 } if blank?(body["dateRange"]) || blank?(body["dateRange"]["startDate"]) || blank?(body["dateRange"]["endDate"])
   start_date = Dates.parse_google_date(body["dateRange"]["startDate"])
   end_date = Dates.parse_google_date(body["dateRange"]["endDate"])
+
   jira = Jira.new(
     tenant_name: tenant_name,
     username: username,
