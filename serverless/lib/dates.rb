@@ -19,7 +19,16 @@ class Dates
     ((end_time - start_time) * 24 * 60 * 60).to_i
   end
 
+  def self.beginning_of_day(datetime)
+    DateTime.new(datetime.year, datetime.month, datetime.day, 0, 0, 0)
+  end
+
   def self.end_of_day(datetime)
     DateTime.new(datetime.year, datetime.month, datetime.day, 23, 59, 59)
+  end
+
+  # https://developers.google.com/datastudio/connector/reference#semantictype
+  def self.format_as_google_ymd(datetime)
+    datetime.strftime("%Y%m%d")
   end
 end

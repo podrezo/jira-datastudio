@@ -5,7 +5,7 @@ provider:
   runtime: ruby2.7
   memorySize: 128
   logRetentionInDays: 14
-  timeout: 15
+  timeout: 30
   httpApi:
     payload: '2.0'
   environment:
