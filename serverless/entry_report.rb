@@ -10,6 +10,8 @@ def run(event:, context:)
   username = body["username"]
   token = body["token"]
   jql = body["jql"]
+  # The format of both dates is YYYY-MM-DD
+  # https://developers.google.com/datastudio/connector/reference#getdata
   start_date = Dates.parse_google_date(body["dateRange"]["startDate"])
   end_date = Dates.parse_google_date(body["dateRange"]["endDate"])
   jira = Jira.new(
@@ -19,9 +21,6 @@ def run(event:, context:)
   )
   jira.issue_search(jql)
   
-  # Optionally, a date range may be supplied
-  # The format of both dates is YYYY-MM-DD
-  # https://developers.google.com/datastudio/connector/reference#getdata
   report = DailyReport.new(
     jira.issues.map { |raw_issue| Issue.new(raw_issue) }
   )
