@@ -4,6 +4,13 @@ const dsAggregationTypes = communityConnector.AggregationType;
 
 function _getField(fields, fieldId) {
   switch (fieldId) {
+    case 'type':
+      fields
+        .newDimension()
+        .setId('type')
+        .setName('Issue Type')
+        .setType(dsTypes.TEXT);
+      break;
     case 'date':
       fields
         .newDimension()
@@ -16,21 +23,32 @@ function _getField(fields, fieldId) {
         .newMetric()
         .setId('wip')
         .setName('WIP')
-        .setType(dsTypes.NUMBER);
+        .setType(dsTypes.NUMBER)
+        .setAggregation(dsAggregationTypes.SUM);
       break;
     case 'cumulative_finished_issues':
       fields
         .newMetric()
         .setId('cumulative_finished_issues')
         .setName('Cumulative Finished Issues')
-        .setType(dsTypes.NUMBER);
+        .setType(dsTypes.NUMBER)
+        .setAggregation(dsAggregationTypes.SUM);
       break;
-    case 'throughput':
+    case 'throughput_day':
+        fields
+          .newMetric()
+          .setId('throughput_day')
+          .setName('Throughput (1 Day)')
+          .setType(dsTypes.NUMBER)
+          .setAggregation(dsAggregationTypes.SUM);
+        break;
+    case 'throughput_week':
       fields
         .newMetric()
-        .setId('throughput')
+        .setId('throughput_week')
         .setName('Throughput (7 Days)')
-        .setType(dsTypes.NUMBER);
+        .setType(dsTypes.NUMBER)
+        .setAggregation(dsAggregationTypes.SUM);
       break;
     case 'cumulative_finished_issues_plus_wip':
       fields
@@ -38,7 +56,8 @@ function _getField(fields, fieldId) {
         .setId('cumulative_finished_issues_plus_wip')
         .setName('Cumulative Finished Issues + WIP')
         .setType(dsTypes.NUMBER)
-        .setFormula('$cumulative_finished_issues + $wip');
+        .setFormula('$cumulative_finished_issues + $wip')
+        .setAggregation(dsAggregationTypes.SUM);
       break;
     default:
       throw new Error(`Invalid fieldId: ${fieldId}`)
@@ -58,7 +77,7 @@ function _getField(fields, fieldId) {
 // }
 function getSchema(request) {
   let fields = communityConnector.getFields();
-  const fieldIds = request.fields ? request.fields.map(field => field.name) : ['date', 'wip', 'cumulative_finished_issues', 'throughput', 'cumulative_finished_issues_plus_wip'];
+  const fieldIds = request.fields ? request.fields.map(field => field.name) : ['type', 'date', 'wip', 'cumulative_finished_issues', 'throughput_day', 'throughput_week', 'cumulative_finished_issues_plus_wip'];
   fieldIds.forEach(fieldId => {
     fields = _getField(fields, fieldId);
   });
@@ -150,7 +169,7 @@ function getConfig(request) {
     .setId('jqlIssueQuery')
     .setName('JQL Issue Query')
     .setHelpText('If you go to your "Issues" view you can filter down to the issues you are interested in then switch to "advanced" view to see the JQL query.')
-    .setPlaceholder('project = XYZ AND issuetype != Sub-task AND AND type = "Spike"');
+    .setPlaceholder('project = XYZ AND issuetype != Sub-task AND type not in ("Epic")');
 
   config.setDateRangeRequired(true);
   return config.build();

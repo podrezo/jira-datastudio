@@ -58,27 +58,8 @@ describe "DailyReport" do
 
   it "should work for input dates that have to issues (before)" do
     report = DailyReport.new([])
-    expected_report = [
-      {
-        date: "20180420",
-        wip: 0,
-        cumulative_finished_issues: 0,
-        throughput: 0,
-      },
-      {
-        date: "20180421",
-        wip: 0,
-        cumulative_finished_issues: 0,
-        throughput: 0,
-      },
-      {
-        date: "20180422",
-        wip: 0,
-        cumulative_finished_issues: 0,
-        throughput: 0,
-      },
-    ]
-    assert_equal(expected_report, report.perform(test_date_range(20, 22)))
+    expected_report = []
+    assert_matched_arrays(expected_report, report.perform(test_date_range(20, 22)))
   end
 
   it "should work for input dates that have to issues (after)" do
@@ -88,16 +69,20 @@ describe "DailyReport" do
         date: "20180424",
         wip: 0,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 0,
+        type: "Story",
       },
       {
         date: "20180425",
         wip: 0,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 0,
+        type: "Story",
       },
     ]
-    assert_equal(expected_report, report.perform(test_date_range(24, 25)))
+    assert_matched_arrays(expected_report, report.perform(test_date_range(24, 25)))
   end
 
   it "should be able to generate a report for one issue" do
@@ -109,16 +94,68 @@ describe "DailyReport" do
         date: "20180420",
         wip: 1,
         cumulative_finished_issues: 0,
-        throughput: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Story",
       },
       {
         date: "20180421",
         wip: 0,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Story",
       },
     ]
-    assert_equal(expected_report, report.perform(test_date_range(20, 21)))
+    assert_matched_arrays(expected_report, report.perform(test_date_range(20, 21)))
+  end
+
+  it "should distinguish between issue types" do
+    other_type_issue = OpenStruct.new(
+      key: "XYZ-124",
+      type: "Task",
+      started: issue1_started_date,
+      finished: issue1_finished_date,
+      lead_time: ((issue1_finished_date - issue1_started_date) * 24 * 60 * 60).to_i
+    )
+    report = DailyReport.new([other_type_issue, issue1])
+    start_date = DateTime.new(2018,4,20)
+    end_date = DateTime.new(2018,4,21)
+    expected_report = [
+      {
+        date: "20180420",
+        wip: 1,
+        cumulative_finished_issues: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Story",
+      },
+      {
+        date: "20180420",
+        wip: 1,
+        cumulative_finished_issues: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Task",
+      },
+      {
+        date: "20180421",
+        wip: 0,
+        cumulative_finished_issues: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Story",
+      },
+      {
+        date: "20180421",
+        wip: 0,
+        cumulative_finished_issues: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Task",
+      },
+    ]
+    assert_matched_arrays(expected_report, report.perform(test_date_range(20, 21)))
   end
 
   it "should be able to generate a report for multiple issues" do
@@ -130,28 +167,36 @@ describe "DailyReport" do
         date: "20180420",
         wip: 1,
         cumulative_finished_issues: 0,
-        throughput: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Story",
       },
       {
         date: "20180421",
         wip: 2,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Story",
       },
       {
         date: "20180422",
         wip: 1,
         cumulative_finished_issues: 2,
-        throughput: 2,
+        throughput_week: 2,
+        throughput_day: 1,
+        type: "Story",
       },
       {
         date: "20180423",
         wip: 0,
         cumulative_finished_issues: 3,
-        throughput: 3,
+        throughput_week: 3,
+        throughput_day: 1,
+        type: "Story",
       },
     ]
-    assert_equal(expected_report, report.perform(test_date_range(20, 23)))
+    assert_matched_arrays(expected_report, report.perform(test_date_range(20, 23)))
   end
 
   it "should be able to filter dates of interest when performing the report" do
@@ -163,16 +208,20 @@ describe "DailyReport" do
         date: "20180421",
         wip: 2,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Story",
       },
       {
         date: "20180422",
         wip: 1,
         cumulative_finished_issues: 2,
-        throughput: 2,
+        throughput_week: 2,
+        throughput_day: 1,
+        type: "Story",
       },
     ]
-    assert_equal(expected_report, report.perform(test_date_range(21, 22)))
+    assert_matched_arrays(expected_report, report.perform(test_date_range(21, 22)))
   end
 
   it "should count unfinished issues for WIP" do
@@ -191,16 +240,20 @@ describe "DailyReport" do
         date: "20180420",
         wip: 2,
         cumulative_finished_issues: 0,
-        throughput: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Story",
       },
       {
         date: "20180421",
         wip: 1,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Story",
       },
     ]
-    assert_equal(expected_report, report.perform(test_date_range(20, 21)))
+    assert_matched_arrays(expected_report, report.perform(test_date_range(20, 21)))
   end
 
   it "should not blow up when there is just one, unfinished issue" do
@@ -214,12 +267,14 @@ describe "DailyReport" do
     report = DailyReport.new([issue_with_no_started_date])
     start_date = DateTime.new(2018,4,20)
     end_date = DateTime.new(2018,4,20)
-    assert_equal([
+    assert_matched_arrays([
       {
         date: "20180420",
         wip: 1,
         cumulative_finished_issues: 0,
-        throughput: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Story",
       }
     ], report.perform(test_date_range(20, 20)))
   end
@@ -240,16 +295,20 @@ describe "DailyReport" do
         date: "20180420",
         wip: 1,
         cumulative_finished_issues: 0,
-        throughput: 0,
+        throughput_week: 0,
+        throughput_day: 0,
+        type: "Story",
       },
       {
         date: "20180421",
         wip: 0,
         cumulative_finished_issues: 1,
-        throughput: 1,
+        throughput_week: 1,
+        throughput_day: 1,
+        type: "Story",
       },
     ]
     # Same as the test for issue1, the other issue is ignored
-    assert_equal(expected_report, report.perform(test_date_range(20, 21)))
+    assert_matched_arrays(expected_report, report.perform(test_date_range(20, 21)))
   end
 end
