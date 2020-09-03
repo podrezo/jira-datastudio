@@ -3,9 +3,9 @@ provider:
   name: aws
   stage: ${self:custom.stage}
   runtime: ruby2.7
-  memorySize: 128
+  memorySize: 192
   logRetentionInDays: 14
-  timeout: 30
+  timeout: 28
   httpApi:
     payload: '2.0'
   environment:
