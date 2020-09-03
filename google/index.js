@@ -36,14 +36,6 @@ function _getField(fields, fieldId) {
         .setType(dsTypes.NUMBER)
         .setAggregation(dsAggregationTypes.SUM);
       break;
-    case 'throughput_day':
-        fields
-          .newMetric()
-          .setId('throughput_day')
-          .setName('Throughput (1 Day)')
-          .setType(dsTypes.NUMBER)
-          .setAggregation(dsAggregationTypes.SUM);
-        break;
     case 'throughput_week':
       fields
         .newMetric()
@@ -97,8 +89,9 @@ function getSchema(request) {
   let fields = communityConnector.getFields();
   switch(request.configParams.reportType) {
     case 'daily':
-      ['type', 'date', 'wip', 'cumulative_finished_issues', 'throughput_day',
-        'throughput_week', 'cumulative_finished_issues_plus_wip'].forEach(fieldId => {
+      ['type', 'date', 'wip', 'cumulative_finished_issues',
+       'throughput_week', 'cumulative_finished_issues_plus_wip'
+      ].forEach(fieldId => {
         fields = _getField(fields, fieldId);
       });
       fields.setDefaultMetric('wip');

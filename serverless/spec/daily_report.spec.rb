@@ -70,7 +70,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 0,
         type: "Story",
       },
       {
@@ -78,7 +77,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 0,
         type: "Story",
       },
     ]
@@ -95,7 +93,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Story",
       },
       {
@@ -103,7 +100,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Story",
       },
     ]
@@ -127,7 +123,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Story",
       },
       {
@@ -135,7 +130,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Task",
       },
       {
@@ -143,7 +137,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Story",
       },
       {
@@ -151,7 +144,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Task",
       },
     ]
@@ -168,7 +160,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Story",
       },
       {
@@ -176,7 +167,6 @@ describe "DailyReport" do
         wip: 2,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Story",
       },
       {
@@ -184,7 +174,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 2,
         throughput_week: 2,
-        throughput_day: 1,
         type: "Story",
       },
       {
@@ -192,7 +181,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 3,
         throughput_week: 3,
-        throughput_day: 1,
         type: "Story",
       },
     ]
@@ -209,7 +197,6 @@ describe "DailyReport" do
         wip: 2,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Story",
       },
       {
@@ -217,7 +204,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 2,
         throughput_week: 2,
-        throughput_day: 1,
         type: "Story",
       },
     ]
@@ -241,7 +227,6 @@ describe "DailyReport" do
         wip: 2,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Story",
       },
       {
@@ -249,7 +234,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Story",
       },
     ]
@@ -273,7 +257,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Story",
       }
     ], report.perform(test_date_range(20, 20)))
@@ -296,7 +279,6 @@ describe "DailyReport" do
         wip: 1,
         cumulative_finished_issues: 0,
         throughput_week: 0,
-        throughput_day: 0,
         type: "Story",
       },
       {
@@ -304,7 +286,6 @@ describe "DailyReport" do
         wip: 0,
         cumulative_finished_issues: 1,
         throughput_week: 1,
-        throughput_day: 1,
         type: "Story",
       },
     ]
