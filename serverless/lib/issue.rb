@@ -37,4 +37,14 @@ class Issue
       .flatten
       .sort { |logitem| logitem[:datetime] }
   end
+
+  def to_hash
+    {
+      key: @key,
+      type: @type,
+      started: Dates.format_as_google_ymd(@started),
+      finished: Dates.format_as_google_ymd(@finished),
+      lead_time: @lead_time,
+    }
+  end
 end

@@ -1,7 +1,9 @@
 require "json"
+require "digest"
 require_relative "./lib/dates"
 require_relative "./lib/jira"
 require_relative "./lib/issue"
+require_relative "./lib/cache"
 require_relative "./lib/daily_report"
 require_relative "./lib/issue_report"
 
@@ -27,14 +29,26 @@ def run(event:, context:)
   start_date = Dates.parse_google_date(body["dateRange"]["startDate"])
   end_date = Dates.parse_google_date(body["dateRange"]["endDate"])
 
-  jira = Jira.new(
-    tenant_name: tenant_name,
-    username: username,
-    token: token,
-  )
-  jira.issue_search(jql)
+  cache_key_hashpart = Digest::SHA2.hexdigest("#{username}\n#{token}\n#{jql}")
+  cache_key = "#{tenant_name}-#{cache_key_hashpart}"
+  cache = Cache.new(cache_key)
 
-  issues = jira.issues.map { |raw_issue| Issue.new(raw_issue) }
+  if cache.hit?
+    issues = cache.issues
+  else
+    jira = Jira.new(
+      tenant_name: tenant_name,
+      username: username,
+      token: token,
+    )
+    jira.issue_search(jql)
+  
+    issues = jira.issues.map { |raw_issue| Issue.new(raw_issue) }
+
+    cache.store(issues)
+  end
+
+  
 
   case report
   when "issue"

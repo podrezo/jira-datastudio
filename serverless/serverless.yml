@@ -8,11 +8,22 @@ provider:
   timeout: 28
   httpApi:
     payload: '2.0'
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+       - s3:ListBucket
+       - s3:*Object
+      Resource:
+        Fn::GetAtt:
+          - CacheBucket
+          - Arn
   environment:
     GEM_PATH: /opt/ruby/2.5.0
     STAGE: ${self:custom.stage}
+    CACHE_BUCKET_NAME: ${self:custom.cacheBucketName}
 custom:
   stage: ${opt:stage, env:SLS_STAGE, 'dev'}
+  cacheBucketName: jira-datastudio-${self:custom.stage}
 functions:
   report:
     handler: entry_report.run
@@ -28,6 +39,12 @@ functions:
       - httpApi:
           method: POST
           path: /jira-kanban
+resources:
+  Resources:
+    CacheBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.cacheBucketName}
 # layers:
 #   gems:
 #     name: ${self:provider.stage}-gems
