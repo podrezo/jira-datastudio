@@ -19,6 +19,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     jmespath (1.4.0)
     minitest (5.14.1)
+    timecop (0.9.1)
 
 PLATFORMS
   ruby
@@ -26,6 +27,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3 (~> 1.79)
   minitest (~> 5.14)
+  timecop (~> 0.9.1)
 
 BUNDLED WITH
    2.1.2

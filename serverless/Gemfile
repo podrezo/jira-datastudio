@@ -9,3 +9,5 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem "minitest", "~> 5.14", :group => :development
 
 gem "aws-sdk-s3", "~> 1.79"
+
+gem "timecop", "~> 0.9.1", :group => :development

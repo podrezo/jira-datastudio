@@ -1,4 +1,5 @@
 require "ostruct"
+require "timecop"
 require_relative "../lib/daily_report.rb"
 
 def test_date_range(day_from, day_to)
@@ -56,13 +57,13 @@ describe "DailyReport" do
     )
   }
 
-  it "should work for input dates that have to issues (before)" do
+  it "should work for input dates that have no issues (before)" do
     report = DailyReport.new([])
     expected_report = []
     assert_matched_arrays(expected_report, report.perform(test_date_range(20, 22)))
   end
 
-  it "should work for input dates that have to issues (after)" do
+  it "should work for input dates that have no issues (after)" do
     report = DailyReport.new([issue1])
     expected_report = [
       {
@@ -81,6 +82,22 @@ describe "DailyReport" do
       },
     ]
     assert_matched_arrays(expected_report, report.perform(test_date_range(24, 25)))
+  end
+  
+  it "should not produce any data points for a time that is in the future" do
+    report = DailyReport.new([issue1])
+    expected_report = [
+      {
+        date: "20180424",
+        wip: 0,
+        cumulative_finished_issues: 1,
+        throughput_week: 1,
+        type: "Story",
+      },
+    ]
+    Timecop.freeze(DateTime.new(2018, 4, 25, 11, 30)) do
+      assert_matched_arrays(expected_report, report.perform(test_date_range(24, 30)))
+    end
   end
 
   it "should be able to generate a report for one issue" do
