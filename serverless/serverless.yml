@@ -11,12 +11,21 @@ provider:
   iamRoleStatements:
     - Effect: 'Allow'
       Action:
-       - s3:ListBucket
+        - 's3:ListBucket'
+      Resource:
+        Fn::Join:
+          - ''
+          - - 'arn:aws:s3:::'
+            - Ref: CacheBucket
+    - Effect: 'Allow'
+      Action:
        - s3:*Object
       Resource:
-        Fn::GetAtt:
-          - CacheBucket
-          - Arn
+        Fn::Join:
+          - ''
+          - - 'arn:aws:s3:::'
+            - Ref: CacheBucket
+            - '/*'
   environment:
     GEM_PATH: /opt/ruby/2.5.0
     STAGE: ${self:custom.stage}
@@ -29,10 +38,14 @@ functions:
     handler: entry_report.run
     package:
       exclude:
-        - ./**
-      include:
-        - entry_report.rb
-        - lib/**/*.rb
+        - ./spec
+        - ./Gemfile
+        - ./Gemfile.lock
+        - ./run_all_specs.rb
+        - ./run_locally.rb
+      # include:
+      #   - entry_report.rb
+      #   - lib/**/*.rb
     # layers:
     #   - { Ref: GemsLambdaLayer }
     events:
@@ -45,6 +58,12 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:custom.cacheBucketName}
+        LifecycleConfiguration:
+          Rules:
+            -
+              ExpirationInDays: 1
+              Prefix: '/'
+              Status: Enabled 
 # layers:
 #   gems:
 #     name: ${self:provider.stage}-gems

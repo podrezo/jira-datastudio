@@ -35,7 +35,7 @@ class DailyReportSingleType
         issues_finished_this_day = issues_completed_within_range(point - 1, point)
         cumulative_finished_issues += issues_finished_this_day
         {
-          date: Dates.format_as_google_ymd(point),
+          date: Dates.format_as_datastudio_ymd(point),
           wip: @interval_tree.intersections_at_point(point.strftime("%s").to_i),
           cumulative_finished_issues: cumulative_finished_issues,
           throughput_week: issues_completed_within_range(point - 7, point),

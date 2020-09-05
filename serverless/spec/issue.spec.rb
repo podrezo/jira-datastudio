@@ -57,19 +57,12 @@ describe "Issue" do
         }
       }
     JSON
-    issue = Issue.new(JSON.parse(issue_json))
+    issue = Issue.from_jira_raw_json(JSON.parse(issue_json))
     assert_equal("ABC-42", issue.key)
     assert_equal("Story", issue.type)
     assert_equal("2020-08-27T11:23:36+00:00", issue.started.to_s)
     assert_equal("2020-08-27T16:45:56+00:00", issue.finished.to_s)
     assert_equal(19340, issue.lead_time)
-    assert_equal({
-      key: "ABC-42",
-      type: "Story",
-      started: "20200827",
-      finished: "20200827",
-      lead_time: 19340,
-    }, issue.to_hash)
   end
   describe "status_matrix" do
     it "ignores non-status history items" do

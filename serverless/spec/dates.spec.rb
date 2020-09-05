@@ -13,6 +13,12 @@ describe "Dates" do
     end
   end
 
+  describe "format_as_google_date" do
+    it "should format as YYYY-MM-DD" do
+      assert_equal("2018-04-20", Dates.format_as_google_date(DateTime.new(2018, 4, 20, 16, 20, 42)))
+    end
+  end
+
   describe "diff_dates_in_seconds" do
     it "should return 86400 seconds for one day" do
       assert_equal(86400, Dates.diff_dates_in_seconds(DateTime.new(2018,4,20), DateTime.new(2018,4,21)))
@@ -43,9 +49,9 @@ describe "Dates" do
     end
   end
 
-  describe "format_as_google_ymd" do
+  describe "format_as_datastudio_ymd" do
     it "should be able to format datetimes for google YEAR_MONTH_DAY format" do
-      assert_equal("20180420", Dates.format_as_google_ymd(DateTime.new(2018, 4, 20, 16, 20, 42)))
+      assert_equal("20180420", Dates.format_as_datastudio_ymd(DateTime.new(2018, 4, 20, 16, 20, 42)))
     end
   end
 end

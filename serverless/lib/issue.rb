@@ -6,17 +6,12 @@ JIRA_STATUS_DONE = "Done"
 
 class Issue
   attr_reader :key, :type, :lead_time, :started, :finished
-  def initialize(issue)
-    @key = issue["key"]
-    @type = issue["fields"]["issuetype"]["name"]
-    status_log = Issue.status_matrix(issue["changelog"]["histories"])
-    @started = status_log.first[:datetime] if(status_log.first&.fetch(:from) == JIRA_STATUS_DEFAULT)
-    @finished = status_log.last[:datetime] if(status_log.last&.fetch(:to) == JIRA_STATUS_DONE)
-    if @started.nil?
-      @lead_time = nil
-    else
-      @lead_time = Dates.diff_dates_in_seconds(@started, @finished || DateTime.now)
-    end
+  def initialize(key, type, started, finished, lead_time)
+    @key = key
+    @type = type
+    @started = started
+    @finished = finished
+    @lead_time = lead_time
   end
 
   def self.status_matrix(histories)
@@ -38,13 +33,17 @@ class Issue
       .sort { |logitem| logitem[:datetime] }
   end
 
-  def to_hash
-    {
-      key: @key,
-      type: @type,
-      started: Dates.format_as_google_ymd(@started),
-      finished: Dates.format_as_google_ymd(@finished),
-      lead_time: @lead_time,
-    }
+  def self.from_jira_raw_json(issue)
+    key = issue["key"]
+    type = issue["fields"]["issuetype"]["name"]
+    status_log = Issue.status_matrix(issue["changelog"]["histories"])
+    started = status_log.first[:datetime] if(status_log.first&.fetch(:from) == JIRA_STATUS_DEFAULT)
+    finished = status_log.last[:datetime] if(status_log.last&.fetch(:to) == JIRA_STATUS_DONE)
+    if started.nil?
+      lead_time = nil
+    else
+      lead_time = Dates.diff_dates_in_seconds(started, finished || DateTime.now)
+    end
+    Issue.new(key, type, started, finished, lead_time)
   end
 end

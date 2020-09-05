@@ -60,19 +60,19 @@ describe "IssueReport" do
     end_date = DateTime.new(2018,4,23)
     expected_report = [
       {
-        date: Dates.format_as_google_ymd(issue1.finished),
+        date: Dates.format_as_datastudio_ymd(issue1.finished),
         lead_time: issue1.lead_time.to_s,
         key: issue1.key,
         type: issue1.type,
       },
       {
-        date: Dates.format_as_google_ymd(issue2.finished),
+        date: Dates.format_as_datastudio_ymd(issue2.finished),
         lead_time: issue2.lead_time.to_s,
         key: issue2.key,
         type: issue2.type,
       },
       {
-        date: Dates.format_as_google_ymd(issue3.finished),
+        date: Dates.format_as_datastudio_ymd(issue3.finished),
         lead_time: issue3.lead_time.to_s,
         key: issue3.key,
         type: issue3.type,
@@ -95,7 +95,7 @@ describe "IssueReport" do
     end_date = DateTime.new(2018,4,23)
     expected_report = [
       {
-        date: Dates.format_as_google_ymd(issue3.finished),
+        date: Dates.format_as_datastudio_ymd(issue3.finished),
         lead_time: issue3.lead_time.to_s,
         key: issue3.key,
         type: issue3.type,

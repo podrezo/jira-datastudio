@@ -28,7 +28,15 @@ class Dates
   end
 
   # https://developers.google.com/datastudio/connector/reference#semantictype
-  def self.format_as_google_ymd(datetime)
+  def self.format_as_datastudio_ymd(datetime)
     datetime.strftime("%Y%m%d")
+  end
+
+  # Only referred to as google date since that's the format Google happens to use
+  # for passing date ranged. However, this code is actually used to make it simpler
+  # to deseralize and serialize issues for caching. Re-using the same date format
+  # means less code to maintain
+  def self.format_as_google_date(datetime)
+    datetime.strftime("%Y-%m-%d")
   end
 end
