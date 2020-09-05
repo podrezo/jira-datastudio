@@ -2,6 +2,8 @@ const communityConnector = DataStudioApp.createCommunityConnector();
 const dsTypes = communityConnector.FieldType;
 const dsAggregationTypes = communityConnector.AggregationType;
 
+const DATA_ENDPOINT = 'https://124q9e70fi.execute-api.us-east-1.amazonaws.com/jira-kanban';
+
 function _getField(fields, fieldId) {
   switch (fieldId) {
     // All report types
@@ -153,14 +155,13 @@ function getData(request) {
     report: request.configParams.reportType,
     dateRange: request.dateRange,
   };
-  const endpoint = 'https://s4qjj6vqha.execute-api.us-east-1.amazonaws.com/jira-kanban';
   const requestOptions = {
     muteHttpExceptions: true,
     method: 'post',
     contentType: 'application/json',
     payload: JSON.stringify(payload)
   };
-  const httpResponse = UrlFetchApp.fetch(endpoint, requestOptions);
+  const httpResponse = UrlFetchApp.fetch(DATA_ENDPOINT, requestOptions);
   // handle errors from the API
   if(httpResponse.getResponseCode() !== 200) {
     Logger.log('An exception occurred accessing the API:');
