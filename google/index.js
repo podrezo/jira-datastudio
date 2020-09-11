@@ -202,8 +202,8 @@ function getConfig(request) {
     .newSelectSingle()
     .setId('reportType')
     .setName('Report Type')
-    .setHelpText('')
-    .setAllowOverride(true)
+    .setHelpText('The type of data this data source is going to pull in')
+    .setAllowOverride(false)
     .addOption(config.newOptionBuilder().setLabel('Daily Report (WIP, Throughput, Cumulative)').setValue('daily'))
     .addOption(config.newOptionBuilder().setLabel('Issue Report (Lead time)').setValue('issue'));
 
