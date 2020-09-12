@@ -5,6 +5,13 @@ describe "Dates" do
     it "should strip timezone information" do
       assert_equal("2020-08-27T11:23:36+00:00", Dates.parse_jira_datetime("2020-08-27T11:23:36.012-0400").to_s)
     end
+    it "should not be thrown off by the microseconds part" do
+      # This is from a bug. If you pass a 7th parameter to DateTime.new it interprets it as microseconds
+      # which is not really relevant for us, but was being parsed nonetheless. However, if your microseconds happens
+      # to be exactly 1 then ruby interprets it as a timezone and ends up skewing the date we get by an entire day
+      # leading to wrong results like having a finished date before the started date
+      assert_equal("2018-06-20T13:46:09+00:00", Dates.parse_jira_datetime("2018-06-20T13:46:09.001-0400").to_s)
+    end
   end
 
   describe "parse_google_date" do

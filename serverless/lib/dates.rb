@@ -3,9 +3,9 @@ require "date"
 class Dates
   # This format of date is used by Jira for all datetimes
   def self.parse_jira_datetime(datetime)
-    re = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).(\d{3})-\d{4}$/
-    _, year, month, day, hour, minute, second, microsecond = re.match(datetime).to_a.map(&:to_i)
-    DateTime.new(year, month, day, hour, minute, second, microsecond)
+    re = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).\d{3}-\d{4}$/
+    _, year, month, day, hour, minute, second = re.match(datetime).to_a.map(&:to_i)
+    DateTime.new(year, month, day, hour, minute, second)
   end
 
   # YYYY-MM-DD is used by Google to supply date ranges for reports
