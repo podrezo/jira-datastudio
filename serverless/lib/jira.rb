@@ -10,21 +10,31 @@ class Jira
     @tenant_name = tenant_name
     @username = username
     @token = token
-    @issues = []
+    # As per Jira's docs, set the requested number of records really high
+    # If the actual maximum specified for the API is lower than that, it will
+    # return the lower number which we will then adjust into this variable
+    @max_results = 1000
+    @issues = nil
   end
 
   def issue_search(jql)
-    page_number = 1
-    result = {
-      "total" => 1 # Assume there's at least one result, this will be overwritten 
-    }
-    while(@issues.length < result["total"]) do
-      result = issue_search_page(jql, @issues.length)
-      @issues += result["issues"]
-      puts "[#{@tenant_name}] Page #{page_number}: Fetched #{result["issues"].length} issues"
-      page_number += 1
+    @issues = []
+    first_page = issue_search_page(jql, 0)
+    @issues += first_page["issues"]
+    total_records = first_page["total"]
+    puts "Query '#{jql}' ==> #{total_records} total records"
+
+    threads = (@issues.length .. total_records).step(@max_results).to_a.map do |start_at|
+      Thread.new do
+        Thread.current[:issues_subset] = issue_search_page(jql, start_at)["issues"]
+      end
     end
-    puts "[#{@tenant_name}] Finished fetching all issues: #{@issues.length} issues total"
+
+    threads.each do |thread|
+      @issues += thread.join[:issues_subset]
+    end
+
+    puts "Total records pulled: #{@issues.length}. Threads used: #{threads.length}"
   end
 
   private
@@ -47,7 +57,7 @@ class Jira
     body = {
       "expand": ["changelog"],
       "jql": jql,
-      "maxResults" => 100,
+      "maxResults" => @max_results,
       "fieldsByKeys" => false,
       "fields" => [
           "summary",
@@ -58,6 +68,8 @@ class Jira
     request.body = JSON.generate(body)
 
     response = https.request(request)
-    JSON.parse(response.read_body)
+    data = JSON.parse(response.read_body)
+    @max_results = data["maxResults"]
+    data
   end
 end

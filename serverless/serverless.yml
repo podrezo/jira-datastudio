@@ -3,9 +3,9 @@ provider:
   name: aws
   stage: ${self:custom.stage}
   runtime: ruby2.7
-  memorySize: 192
+  memorySize: 1024
   logRetentionInDays: 14
-  timeout: 28
+  timeout: 28 # API gateway times out at 29 seconds so we set the lambda's timeout to be a bit shorter
   httpApi:
     payload: '2.0'
   iamRoleStatements:
