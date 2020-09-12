@@ -5,6 +5,11 @@ describe "IntervalTree" do
     interval_tree = IntervalTree.new([])
     assert_equal(0, interval_tree.intersections_at_point(0))
   end
+  it "should raise when the range is invalid (start > finish)" do
+    assert_raises RuntimeError do 
+      IntervalTree.new([[10, 5]])
+    end
+  end
   it "should have nothing before or after one interval" do
     interval_tree = IntervalTree.new([[5,10]])
     assert_equal(0, interval_tree.intersections_at_point(4))

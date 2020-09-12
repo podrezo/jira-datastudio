@@ -5,6 +5,12 @@ class IntervalTree
       @intersect = []
       return
     end
+    # Check for invalid ranges; only check the first element to avoid iterating over the entire array
+    # If the element that is invalid is further down, we will eventually recurse down to it
+    # This avoids having to do an extra pass over the entire array every time
+    if !interval_list.first[1].nil? && interval_list.first[0] > interval_list.first[1]
+      raise "Invalid range specified #{interval_list.first[0]} --> #{interval_list.first[1]}"
+    end
     all_points = interval_list.flatten.compact
     @center = (all_points.sum)/(all_points.length)
     left = interval_list.select { |i| !i[1].nil? && i[1] < @center }
