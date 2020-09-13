@@ -37,13 +37,13 @@ package:
   individually: true
 functions:
   report:
-    handler: entry_report.run
+    handler: serverless/entry_report.run
     package:
       exclude:
         - ./**
       include:
-        - entry_report.rb
-        - lib/**/*.rb
+        - serverless/entry_report.rb
+        - serverless/lib/**/*.rb
     # layers:
     #   - { Ref: GemsLambdaLayer }
     events:

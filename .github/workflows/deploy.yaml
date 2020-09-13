@@ -22,7 +22,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: serverless deploy
       uses: serverless/github-action@master
-      working-directory: ./serverless
       with:
         args: deploy --stage prod
       env:
