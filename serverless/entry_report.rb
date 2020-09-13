@@ -7,6 +7,8 @@ require_relative "./lib/issue_cache"
 require_relative "./lib/daily_report"
 require_relative "./lib/issue_report"
 
+MAXIMUM_AGE_FOR_CACHE = 3600 # 1 Hour
+
 def blank?(value)
   !value || value.empty?
 end
@@ -46,7 +48,7 @@ def run(event:, context:)
     cache = IssueCache.new(cache_key)
 
     cache_age = cache.age_in_seconds
-    if cache_age.nil?  
+    if cache_age.nil?  || cache_age > MAXIMUM_AGE_FOR_CACHE
       issues = issues_from_api(tenant_name, username, token, jql)
       cache.store(issues)
     else
