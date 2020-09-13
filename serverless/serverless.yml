@@ -33,19 +33,17 @@ provider:
 custom:
   stage: ${opt:stage, env:SLS_STAGE, 'dev'}
   cacheBucketName: jira-datastudio-${self:custom.stage}
+package:
+  individually: true
 functions:
   report:
     handler: entry_report.run
     package:
       exclude:
-        - ./spec
-        - ./Gemfile
-        - ./Gemfile.lock
-        - ./run_all_specs.rb
-        - ./run_locally.rb
-      # include:
-      #   - entry_report.rb
-      #   - lib/**/*.rb
+        - ./**
+      include:
+        - entry_report.rb
+        - lib/**/*.rb
     # layers:
     #   - { Ref: GemsLambdaLayer }
     events:
@@ -58,11 +56,6 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:custom.cacheBucketName}
-        LifecycleConfiguration:
-          Rules:
-            -
-              ExpirationInDays: 1
-              Status: Enabled 
 # layers:
 #   gems:
 #     name: ${self:provider.stage}-gems
