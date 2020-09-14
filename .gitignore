@@ -1,2 +1,4 @@
 .env
 .serverless
+hugo/dist
+hugo/resources/_gen

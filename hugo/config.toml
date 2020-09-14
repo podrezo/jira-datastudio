@@ -1,4 +1,4 @@
-baseURL = "jira-datastudio.netlify.app"
+baseURL = "/"
 languageCode = "en-us"
 title = "Jira Connector for Google Data Studio"
 theme = "hugo-whisper-theme"
