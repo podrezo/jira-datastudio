@@ -1,10 +1,6 @@
 ---
-title: 'Home'
-intro_image: "images/illustrations/pointing.svg"
-intro_image_absolute: true
-intro_image_hide_on_mobile: true
+title: 'Hugo Whisper Docs'
+date: 2018-11-28T15:14:39+10:00
 ---
 
-# Serif - A Hugo Business Theme.
-
-Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+Whisper is a documentation theme built with Hugo. The design and functionality is intentionally minimal. 
