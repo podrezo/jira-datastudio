@@ -42,7 +42,7 @@ class Issue
     if started.nil?
       lead_time = nil
     else
-      lead_time = Dates.diff_dates_in_seconds(started, finished || DateTime.now)
+      lead_time = Dates.lead_time(started, finished || DateTime.now)
     end
     Issue.new(key, type, started, finished, lead_time)
   end

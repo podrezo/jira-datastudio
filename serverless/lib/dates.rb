@@ -15,8 +15,16 @@ class Dates
     DateTime.new(year, month, day)
   end
 
-  def self.diff_dates_in_seconds(start_time, end_time)
-    ((end_time - start_time) * 24 * 60 * 60).to_i
+  def self.lead_time(start_time, end_time)
+    # Lead time should ignore weekends
+    ignore_days = ["6", "7"] # 6 = Sat, 7 = Sun
+    seconds_in_a_day = 24*60*60
+    total_seconds = ((end_time - start_time) * seconds_in_a_day).to_i
+    # Do not iterate right up to the last day because if we end on a weekend we don't want to subtract that day
+    (start_time .. (end_time - 1)).step(1).to_a.each do |dt|
+      total_seconds -= seconds_in_a_day if ignore_days.include?(dt.strftime("%u"))
+    end
+    total_seconds
   end
 
   def self.beginning_of_day(datetime)

@@ -26,9 +26,23 @@ describe "Dates" do
     end
   end
 
-  describe "diff_dates_in_seconds" do
+  describe "lead_time" do
     it "should return 86400 seconds for one day" do
-      assert_equal(86400, Dates.diff_dates_in_seconds(DateTime.new(2018,4,20), DateTime.new(2018,4,21)))
+      assert_equal(86400, Dates.lead_time(DateTime.new(2018,4,19), DateTime.new(2018,4,20)))
+    end
+
+    it "should work when bordering a weekend" do
+      assert_equal(86400, Dates.lead_time(DateTime.new(2018,4,20), DateTime.new(2018,4,21)))
+    end
+
+    it "should ignore weekends (saturday, sunday)" do
+      # Friday at midnight to midnight on wednesday should be 3 full days
+      assert_equal(3*24*60*60, Dates.lead_time(DateTime.new(2018,4,20), DateTime.new(2018,4,25)))
+    end
+
+    it "should not ignore partial time if finishing on a weekend" do
+      # Friday at midnight to noon on sunday should be 1.5 full days
+      assert_equal(1.5*24*60*60, Dates.lead_time(DateTime.new(2018,4,20), DateTime.new(2018,4,22, 12, 0, 0)))
     end
   end
 
